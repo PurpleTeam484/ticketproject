@@ -26,5 +26,11 @@ namespace ticketswap.Controllers
 
             return View();
         }
+        public ActionResult Login()
+        {
+            ViewBag.Message = "enter your username and password.";
+
+            return View();
+        }
     }
 }

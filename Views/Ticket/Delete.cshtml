@@ -1,0 +1,80 @@
+﻿@model ticketswap.Models.TICKET
+
+@{
+    ViewBag.Title = "Delete";
+}
+<!-- don't actually use this view, tickets should be set to sold or inactive, not deleted.-->
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TICKET</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EVENT_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EVENT_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SELLER_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SELLER_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TICKET_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TICKET_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TICKET_FILE_LOCATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TICKET_FILE_LOCATION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TICKET_PRICE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TICKET_PRICE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TICKET_ACTIVE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TICKET_ACTIVE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TICKET_SOLD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TICKET_SOLD)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

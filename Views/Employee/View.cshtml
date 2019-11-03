@@ -1,0 +1,66 @@
+﻿@model ticketswap.Models.EMPLOYEE
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<div>
+    <h4>EMPLOYEE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE_FNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE_FNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE_LNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE_LNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE_EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE_EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE_PASSWORD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE_PASSWORD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE_RATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE_RATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE_ACTIVE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE_ACTIVE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EMPLOYEE_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -8,12 +8,11 @@ namespace ticketswap.Models
     using System.Data.SqlClient;
     using System.Text;
 
-    [Table("USER")]
-    
-    public class USER
+    [Table("ORDER")]
+    public class ORDER
     {
-        //TODO: add constructor method that selects on user_id
-        public USER(int USER_ID)
+
+        public ORDER(int ORDER_ID)
         {
             // SELECT all data with this user_id
             try
@@ -36,7 +35,7 @@ namespace ticketswap.Models
                 }
                 // Fetch the user info by their id
                 StringBuilder sb = new StringBuilder();
-                sb.Append("SELECT * FROM [USER] WHERE USER_ID="+USER_ID.ToString());
+                sb.Append("SELECT * FROM [ORDER] WHERE ORDER_ID=" + ORDER_ID.ToString());
                 String sql = sb.ToString();
 
                 using (SqlCommand command = new SqlCommand(sql, myConnection))
@@ -45,36 +44,35 @@ namespace ticketswap.Models
                     {
                         while (reader.Read())
                         {
-                            this.USER_ID = USER_ID;
-                            this.USER_FNAME = reader["USER_FNAME"].ToString();
-                            this.USER_LNAME = reader["USER_LNAME"].ToString();
-                            this.USER_EMAIL = reader["USER_EMAIL"].ToString();
-                            this.USER_PASSWORD = reader["USER_PASSWORD"].ToString();
-                            this.USER_CAN_SELL = reader["USER_CAN_SELL"].ToString();
-                            this.Logged_in = true;
-                            
+                            this.ORDER_ID = ORDER_ID;
+                            this.TICKET_ID = Convert.ToInt32(reader["TICKET_ID"]);
+                            this.SELLER_ID = Convert.ToInt32(reader["SELLER_ID"]);
+                            this.BUYER_ID = Convert.ToInt32(reader["BUYER_ID"]);
+                            this.ORDER_DATE = reader["ORDER_DATE"].ToString();
+                            this.ORDER_SUBTOTAL = reader["ORDER_SUBTOTAL"].ToString();
+                            this.ORDER_STATUS = reader["ORDER_STATUS"].ToString();
                         }
                     }
                 }
             }
             catch
             {
-                this.USER_ID = 0;
-                this.USER_FNAME = "failed";
+                this.ORDER_ID = 0;
             }
         }
+
+
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int USER_ID { get; set; }
+        public int ORDER_ID { get; set; }
 
-        [StringLength(20)]
-        public string USER_FNAME { get; set; }
+        public int? TICKET_ID { get; set; }
 
-        public bool SET_USER_FNAME(string NEW_FNAME)
+
+        public bool SET_TICKET_ID(int? TICKET_ID)
         {
             try
             {
-                Model1.Update("UPDATE [USER] SET USER_FNAME='" + NEW_FNAME.ToString() + "' WHERE USER_ID=" + this.USER_ID.ToString());
+                Model1.Update("UPDATE [ORDER] SET TICKET_ID=" + TICKET_ID + " WHERE ORDER_ID=" + this.ORDER_ID.ToString());
                 return true;
             }
             catch (Exception e)
@@ -84,14 +82,13 @@ namespace ticketswap.Models
             }
         }
 
-        [StringLength(20)]
-        public string USER_LNAME { get; set; }
+        public int? SELLER_ID { get; set; }
 
-        public bool SET_USER_LNAME(string NEW_LNAME)
+        public bool SET_SELLER_ID(int? SELLER_ID)
         {
             try
             {
-                Model1.Update("UPDATE [USER] SET USER_LNAME='" + NEW_LNAME.ToString() + "' WHERE USER_ID=" + this.USER_ID.ToString());
+                Model1.Update("UPDATE [ORDER] SET SELLER_ID=" + SELLER_ID + " WHERE ORDER_ID=" + this.ORDER_ID.ToString());
                 return true;
             }
             catch (Exception e)
@@ -101,14 +98,13 @@ namespace ticketswap.Models
             }
         }
 
-        [StringLength(35)]
-        public string USER_EMAIL { get; set; }
+        public int? BUYER_ID { get; set; }
 
-        public bool SET_USER_EMAIL(string NEW_EMAIL) 
+        public bool SET_BUYER_ID(int? BUYER_ID)
         {
             try
             {
-                Model1.Update("UPDATE [USER] SET USER_EMAIL='" + NEW_EMAIL.ToString() + "' WHERE USER_ID=" + this.USER_ID.ToString());
+                Model1.Update("UPDATE [ORDER] SET BUYER_ID=" + BUYER_ID + " WHERE ORDER_ID=" + this.ORDER_ID.ToString());
                 return true;
             }
             catch (Exception e)
@@ -118,14 +114,14 @@ namespace ticketswap.Models
             }
         }
 
-        [StringLength(100)]
-        public string USER_PASSWORD { get; set; }
+        [StringLength(30)]
+        public string ORDER_DATE { get; set; }
 
-        public bool SET_USER_PASSWORD(string NEW_PASSWORD)
+        public bool SET_ORDER_DATE(string ORDER_DATE)
         {
             try
             {
-                Model1.Update("UPDATE [USER] SET USER_PASSWORD='" + NEW_PASSWORD.ToString() + "' WHERE USER_ID=" + this.USER_ID.ToString());
+                Model1.Update("UPDATE [ORDER] SET ORDER_DATE='" + ORDER_DATE.ToString() + "' WHERE ORDER_ID=" + this.ORDER_ID.ToString());
                 return true;
             }
             catch (Exception e)
@@ -135,14 +131,14 @@ namespace ticketswap.Models
             }
         }
 
-        [StringLength(4)]
-        public string USER_CAN_SELL { get; set; }
+        [StringLength(10)]
+        public string ORDER_SUBTOTAL { get; set; }
 
-        public bool SET_USER_CAN_SELL(string NEW_SELL)
+        public bool SET_ORDER_SUBTOTAL(string ORDER_SUBTOTAL)
         {
             try
             {
-                Model1.Update("UPDATE [USER] SET USER_CAN_SELL='" + NEW_SELL.ToString() + "' WHERE USER_ID=" + this.USER_ID.ToString());
+                Model1.Update("UPDATE [ORDER] SET ORDER_SUBTOTAL='" + ORDER_SUBTOTAL.ToString() + "' WHERE ORDER_ID=" + this.ORDER_ID.ToString());
                 return true;
             }
             catch (Exception e)
@@ -152,7 +148,22 @@ namespace ticketswap.Models
             }
         }
 
-        public bool Logged_in { get; set; }
+        [StringLength(30)]
+        public string ORDER_STATUS { get; set; }
+
+        public bool SET_ORDER_STATUS(string ORDER_STATUS)
+        {
+            try
+            {
+                Model1.Update("UPDATE [ORDER] SET ORDER_STATUS='" + ORDER_STATUS.ToString() + "' WHERE ORDER_ID=" + this.ORDER_ID.ToString());
+                return true;
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.ToString());
+                return false;
+            }
+        }
 
     }
 }

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ticketswap.Models.ORDER>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TICKET_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SELLER_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BUYER_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDER_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDER_SUBTOTAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDER_STATUS)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TICKET_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SELLER_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BUYER_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ORDER_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ORDER_SUBTOTAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ORDER_STATUS)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ORDER_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ORDER_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ORDER_ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ticketswap.Models.EVENT>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EVENT_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EVENT_TIME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EVENT_VENUE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EVENT_ADDRESS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EVENT_CITY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EVENT_STATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EVENT_ZIP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EVENT_COUNTRY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EVENT_ICON_LOCATION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EVENT_DESCRIPTION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CATEGORY_ID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EVENT_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EVENT_TIME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EVENT_VENUE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EVENT_ADDRESS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EVENT_CITY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EVENT_STATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EVENT_ZIP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EVENT_COUNTRY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EVENT_ICON_LOCATION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EVENT_DESCRIPTION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CATEGORY_ID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EVENT_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EVENT_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EVENT_ID })
+        </td>
+    </tr>
+}
+
+</table>

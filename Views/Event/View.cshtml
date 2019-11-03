@@ -1,0 +1,106 @@
+﻿@model ticketswap.Models.EVENT
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<div>
+    <h4>EVENT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EVENT_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EVENT_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EVENT_TIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EVENT_TIME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EVENT_VENUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EVENT_VENUE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EVENT_ADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EVENT_ADDRESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EVENT_CITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EVENT_CITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EVENT_STATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EVENT_STATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EVENT_ZIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EVENT_ZIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EVENT_COUNTRY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EVENT_COUNTRY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EVENT_ICON_LOCATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EVENT_ICON_LOCATION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EVENT_DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EVENT_DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CATEGORY_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CATEGORY_ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EVENT_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

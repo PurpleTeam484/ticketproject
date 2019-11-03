@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ticketswap.Models.DISPUTE>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDER_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DISPUTE_ACTIVE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DISPUTE_DESCRIPTION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMPLOYEE_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DISPUTE_OPEN_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DISPUTE_CLOSE_DATE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ORDER_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DISPUTE_ACTIVE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DISPUTE_DESCRIPTION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLOYEE_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DISPUTE_OPEN_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DISPUTE_CLOSE_DATE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DISPUTE_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DISPUTE_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DISPUTE_ID })
+        </td>
+    </tr>
+}
+
+</table>

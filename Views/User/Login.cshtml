@@ -1,0 +1,45 @@
+﻿@model ticketswap.Models.USER
+@{
+    //ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Auth", "USER", FormMethod.Post))
+{
+    <fieldset>
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.USER_EMAIL)</td>
+                <td>@Html.TextBox("USER_EMAIL")</td>
+                <td>@Html.ValidationMessageFor(a => a.USER_EMAIL)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.USER_PASSWORD)
+                </td>
+                <td>
+                    @Html.Password("USER_PASSWORD")
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.USER_PASSWORD)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+}
+<p>@Html.ActionLink("Create Account", "Create", "USER")</p>
+<p>Forgot password? Too Bad!!</p>

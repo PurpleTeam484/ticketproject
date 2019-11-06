@@ -2,11 +2,11 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>University Ticket Exchange</h1>
-    <p class="lead">Securely buy or resell tickets for events on campus!</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+    <div class="jumbotron">
+        <h1>University Ticket Exchange</h1>
+        <p class="lead">Securely buy or resell tickets for events on campus!</p>
+        <p class="btn btn-default">@Html.ActionLink("Search Events", "list", "Event") &raquo;</p>
+    </div>
 
 <div class="row">
     <div class="col-md-4">
@@ -14,7 +14,7 @@
         <p>
             Find your event, list your ticket and get paid!
         </p>
-        <p class="btn btn-default">@Html.ActionLink("Sell Tickets", "Login", "Home") &raquo;</p>
+        <p class="btn btn-default">@Html.ActionLink("Sell Tickets", "Login", "User") &raquo;</p>
     </div>
     <div class="col-md-4">
         <h2>Buy Tickets</h2>
@@ -23,7 +23,7 @@
     </div>
     <div class="col-md-4">
         <h2>How it Works</h2>
-        <p>I am tired of typing, I will make someone else do the UI.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <p>We get money. Sellers get money. Buyers get tickets!</p>
+        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
     </div>
 </div>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ticketswap.Models.EVENT>
+﻿@model List<ticketswap.ViewModels.eventViewModel>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -6,37 +6,37 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.EVENT_DATE)
+            date
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EVENT_TIME)
+            time
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EVENT_VENUE)
+            venue name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EVENT_ADDRESS)
+            street
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EVENT_CITY)
+            city
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EVENT_STATE)
+            state
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EVENT_ZIP)
+            zip
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EVENT_COUNTRY)
+            country
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EVENT_ICON_LOCATION)
+            icon
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EVENT_DESCRIPTION)
+            Description
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CATEGORY_ID)
+            Category
         </th>
         <th></th>
     </tr>

@@ -151,6 +151,7 @@
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\USER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\eventViewModel.cs" />
     <Compile Include="ViewModels\userViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,87 +1,70 @@
 ﻿@model List<ticketswap.ViewModels.eventViewModel>
+<!--------------------------------------------------------------------------------->
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            date
-        </th>
-        <th>
-            time
-        </th>
-        <th>
-            venue name
-        </th>
-        <th>
-            street
-        </th>
-        <th>
-            city
-        </th>
-        <th>
-            state
-        </th>
-        <th>
-            zip
-        </th>
-        <th>
-            country
-        </th>
-        <th>
-            icon
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            Category
-        </th>
-        <th></th>
-    </tr>
+<head>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EVENT_DATE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EVENT_TIME)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EVENT_VENUE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EVENT_ADDRESS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EVENT_CITY)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EVENT_STATE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EVENT_ZIP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EVENT_COUNTRY)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EVENT_ICON_LOCATION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EVENT_DESCRIPTION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CATEGORY_ID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EVENT_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EVENT_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EVENT_ID })
-        </td>
-    </tr>
-}
 
-</table>
+    <style>
+        table, th, td {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+
+
+
+    <h2><b><center>Events</center></b></h2>
+
+    <table style="width:98%" align="center" height="100%">
+
+
+        @try
+        {
+            foreach (var item in Model)
+            {
+
+            <tr style="width:30%">
+                <td>
+                    Date and Time: @Html.DisplayFor(modelItem => item.EVENT_DATE)
+                    @Html.DisplayFor(modelItem => item.EVENT_TIME)
+                </td>
+                <td>
+                    Location
+                    @Html.DisplayFor(modelItem => item.EVENT_CITY)
+                </td>
+                <td>
+                    Category: 
+                    @Html.DisplayFor(modelItem => item.CATEGORY_ID)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.EVENT_ID })
+                    @Html.ActionLink("Order", "Order", new { id = item.EVENT_ID })
+                </td>
+            </tr>
+            }
+        }
+        catch
+        {
+            <h3>No Events Found</h3>
+        }
+        </tr>
+    </table>
+</body>
+</html>
+
+
+
+
+
+
+
+<!------------------------------------------------------------------------------------>
+
+
+
+

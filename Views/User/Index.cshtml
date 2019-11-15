@@ -11,13 +11,13 @@
 }
 else
 {
-    <h2>User Information: </h2>
+<h2>User Information: </h2>
 <h4>First Name:</h4>
-<h4>Model.USER_FNAME</h4>
+<h4>@Model.USER_FNAME</h4>
 <h4>Last Name:</h4>
-<h4>Model.USER_LNAME</h4>
+<h4>@Model.USER_LNAME</h4>
 <h4>Email: </h4>
-<h4>Model.USER_EMAIL</h4>
+<h4>@Model.USER_EMAIL</h4>
 <h4>Change password button</h4>
 <h4>Can I sell?</h4>
 if(Model.USER_CAN_SELL=="YES"){
@@ -28,4 +28,5 @@ else
     <h4>No</h4>
 }
 <p class="btn btn-default">@Html.ActionLink("Edit Information", "Edit", "USER") &raquo;</p>
+<p class="btn btn-default">@Html.ActionLink("Events", "Index", "Home") &raquo;</p>
 }

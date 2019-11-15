@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "}
+
+    <div class="jumbotron">
+        <h1>University Ticket Exchange</h1>
+        <p class="lead">Securely buy or resell tickets for events on campus!</p>
+        <p class="btn btn-default">@Html.ActionLink("Search Events", "list", "Event") &raquo;</p>
+    </div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Sell Tickets</h2>
+        <p>
+            Find your event, list your ticket and get paid!
+        </p>
+        <p class="btn btn-default">@Html.ActionLink("Sell Tickets", "Login", "User") &raquo;</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Buy Tickets</h2>
+        <p>Find events in your area, with ticket prices you can probably beat!</p>
+        <p class="btn btn-default">@Html.ActionLink("Buy Tickets", "About", "Home") &raquo;</p>
+    </div>
+    <div class="col-md-4">
+        <h2>How it Works</h2>
+        <p>We get money. Sellers get money. Buyers get tickets!</p>
+        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+    </div>
+</div>

@@ -152,6 +152,7 @@
     <Compile Include="Models\USER.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\eventViewModel.cs" />
+    <Compile Include="ViewModels\orderViewModel.cs" />
     <Compile Include="ViewModels\userViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,7 +163,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\ticketswap - Web Deploy.pubxml" />
@@ -177,6 +177,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Content\logo.png" />
+    <Content Include="Content\main.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -190,7 +192,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Index_old.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
@@ -230,6 +232,9 @@
     <Content Include="Views\Event\preview.cshtml" />
     <Content Include="Views\Dispute\list.cshtml" />
     <Content Include="Views\Order\list.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Ticket\add.cshtml" />
+    <Content Include="Views\Order\checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

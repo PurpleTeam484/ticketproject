@@ -1,29 +1,87 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "Index";
 }
+<head>
+    <title>Ticket Swap</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    <div class="jumbotron">
-        <h1>University Ticket Exchange</h1>
-        <p class="lead">Securely buy or resell tickets for events on campus!</p>
-        <p class="btn btn-default">@Html.ActionLink("Search Events", "list", "Event") &raquo;</p>
+        /* Style the body */
+
+
+        {
+            box-sizing: border-box;
+        }
+
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+            form.example button:hover {
+                background: #0b7dda;
+            }
+
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="a">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2> The Safest way to Buy and sell e-tickets</h2>
+
+ 
+
+        @using (Html.BeginForm("list", "EVENT", FormMethod.Get, new { @style = "margin:auto;max-width:300px", @class="example" }))
+        {
+            <fieldset>
+                <input type="text" placeholder="Search events.." name="search">
+
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </fieldset>
+        }
+
+
     </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Sell Tickets</h2>
-        <p>
-            Find your event, list your ticket and get paid!
-        </p>
-        <p class="btn btn-default">@Html.ActionLink("Sell Tickets", "Login", "User") &raquo;</p>
+    <div class="footer">
+        <h2>&#169 ticketswap.com</h2>
     </div>
-    <div class="col-md-4">
-        <h2>Buy Tickets</h2>
-        <p>Find events in your area, with ticket prices you can probably beat!</p>
-        <p class="btn btn-default">@Html.ActionLink("Buy Tickets", "About", "Home") &raquo;</p>
-    </div>
-    <div class="col-md-4">
-        <h2>How it Works</h2>
-        <p>We get money. Sellers get money. Buyers get tickets!</p>
-        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+</body>
+</html>
+
+

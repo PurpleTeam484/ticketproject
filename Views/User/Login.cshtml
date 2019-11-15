@@ -2,44 +2,105 @@
 @{
     //ViewBag.Title = "Login";
 }
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <style>
 
-<h2>Login</h2>
-
-@using (Html.BeginForm("Auth", "USER", FormMethod.Post))
-{
-    <fieldset>
-        @if (@ViewBag.Message != null)
-        {
-            <div style="border: 1px solid red">
-                @ViewBag.Message
-            </div>
-        }
-        <table>
-            <tr>
-                <td>@Html.LabelFor(a => a.USER_EMAIL)</td>
-                <td>@Html.TextBox("USER_EMAIL")</td>
-                <td>@Html.ValidationMessageFor(a => a.USER_EMAIL)</td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(a => a.USER_PASSWORD)
-                </td>
-                <td>
-                    @Html.Password("USER_PASSWORD")
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(a => a.USER_PASSWORD)
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="submit" value="Login" />
-                </td>
-                <td></td>
-            </tr>
-        </table>
-    </fieldset>
+form {border: 3px solid #f1f1f1;}
+* {
+  box-sizing: border-box;
 }
-<p>@Html.ActionLink("Create Account", "Create", "USER")</p>
-<p>Forgot password? Too Bad!!</p>
+
+/* Style the body */
+
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+h3{
+width: auto;
+pading:20px 24px;
+text-align: center;
+margin: 24px 0 12px 0;
+
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+
+.container {
+  padding: 16px;
+}
+
+
+
+    /* Footer */
+
+    </style>
+</head>
+<body>
+
+
+    @using (Html.BeginForm("Auth", "USER", FormMethod.Post))
+    {
+        <fieldset>
+            @if (@ViewBag.Message != null)
+            {
+                <div style="border: 1px solid red">
+                    @ViewBag.Message
+                </div>
+            }
+            <table>
+                <tr>
+                    <td>@Html.LabelFor(a => a.USER_EMAIL,"Email: ")</td>
+                    <td>@Html.TextBox("USER_EMAIL")</td>
+                    <td>@Html.ValidationMessageFor(a => a.USER_EMAIL)</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(a => a.USER_PASSWORD, "Password: ")
+                    </td>
+                    <td>
+                        @Html.Password("USER_PASSWORD")
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(a => a.USER_PASSWORD)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Login" />
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+    <p>@Html.ActionLink("Create Account", "Create", "USER")</p>
+    <p>Forgot password? Too Bad!!</p>
+
+
+    <div class="footer">
+        <h2>&#169 ticketswap.com</h2>
+    </div>
+
+</body>
+</html>

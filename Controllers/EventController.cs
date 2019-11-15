@@ -21,6 +21,11 @@ namespace ticketswap.Controllers
         {
             return View();
         }
+        public ActionResult Order(int id)
+        {
+            Session["ORDER_ID"] = id;
+            return RedirectToAction("index", "ORDER");
+        }
 
         // GET: Event/Create
         public ActionResult Create()
@@ -86,11 +91,20 @@ namespace ticketswap.Controllers
                 catch (Exception e)
                 {
                     Console.WriteLine("error happened");
-                    System.Diagnostics.Debug.WriteLine("testing: 1111");
+                }
+                StringBuilder sb = new StringBuilder();
+
+                System.Diagnostics.Debug.WriteLine(Request.QueryString["search"]);
+                if (Request.QueryString["search"]!=null)
+                {
+
+                    sb.Append("SELECT * FROM [EVENT] WHERE LOWER(EVENT_STATE)='"+ Request.QueryString["search"].ToLower()+"'");
+                }
+                else
+                {
+                    sb.Append("SELECT * FROM [EVENT]");
                 }
                 // Fetch the user info by their id
-                StringBuilder sb = new StringBuilder();
-                sb.Append("SELECT * FROM [EVENT]");
                 String sql = sb.ToString();
 
                 using (SqlCommand command = new SqlCommand(sql, myConnection))

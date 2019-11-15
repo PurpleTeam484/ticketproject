@@ -4,112 +4,85 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>EVENT</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.EVENT_DATE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EVENT_DATE, new { htmlAttributes = new { @class = "form-control" } })
+    <h1><left>Create new event </left></h1>
+    <div class="row">
+
+
+        <div class="column">
+            @using (Html.BeginForm())
+            {
+                <p>Name</p>
+                <input type="text" name="event">
+                
+                <p>Date</p>
+                @Html.EditorFor(model => model.EVENT_DATE, new
+                {
+                    htmlAttributes = new { @class = "form-control" }
+                })
                 @Html.ValidationMessageFor(model => model.EVENT_DATE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EVENT_TIME, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+              
+                <p>Time</p>
                 @Html.EditorFor(model => model.EVENT_TIME, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.EVENT_TIME, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                
+                <p>Category </p >
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.EVENT_VENUE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EVENT_VENUE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EVENT_VENUE, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <select name = "categories">
+                <option value = "1" > Concert </option>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.EVENT_ADDRESS, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+                 <option value = "2" > Movies </option>
+
+                  <option value = "3" > Marathon </option >
+
+                   <option value = "4" > Sports </option >
+
+                </select>
+
+                <h3>Description</h3>
+                <br>
+                <!--
+        Html.EditorFor(model => model.EVENT_DESCRIPTION, new { htmlAttributes = new { class = "form-control" }
+})
+    Html.ValidationMessageFor(model => model.EVENT_DESCRIPTION, "", new { class = "text-danger" })
+    -->
+        <textarea name="message" rows="10" cols="30">
+    </textarea>
+        <br><br>
+
+        <div class="column">
+                Street
                 @Html.EditorFor(model => model.EVENT_ADDRESS, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.EVENT_ADDRESS, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EVENT_CITY, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+                <br>
+                <br>
+                City
                 @Html.EditorFor(model => model.EVENT_CITY, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.EVENT_CITY, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EVENT_STATE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+                <br>
+                <br>
+                State
                 @Html.EditorFor(model => model.EVENT_STATE, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.EVENT_STATE, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EVENT_ZIP, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+                Zip
                 @Html.EditorFor(model => model.EVENT_ZIP, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.EVENT_ZIP, "", new { @class = "text-danger" })
-            </div>
+                <br>
+                <br>
+                Venue Info
+                @Html.EditorFor(model => model.EVENT_VENUE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EVENT_VENUE, "", new { @class = "text-danger" })
+        
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EVENT_COUNTRY, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EVENT_COUNTRY, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EVENT_COUNTRY, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EVENT_ICON_LOCATION, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EVENT_ICON_LOCATION, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EVENT_ICON_LOCATION, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EVENT_DESCRIPTION, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EVENT_DESCRIPTION, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EVENT_DESCRIPTION, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CATEGORY_ID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CATEGORY_ID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CATEGORY_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
-    </div>
-}
+        }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    </div>
+
+    <div class="footer">
+        <h2>&#169 ticketswap.com</h2>
+    </div>

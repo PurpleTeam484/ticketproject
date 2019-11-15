@@ -11,7 +11,9 @@ namespace ticketswap.Controllers
         // GET: Order
         public ActionResult Index()
         {
-            return View();
+            ViewModels.orderViewModel model = new ViewModels.orderViewModel(); //Convert.ToInt32(Session["ORDER_ID"])
+            var details = new ViewModels.eventViewModel();
+            return View(model);
         }
 
         // GET: Order/Details/5

@@ -4,12 +4,90 @@
     ViewBag.Title = "View";
 }
 
-<h2>View</h2>
+
+
+    <h1><left>Edit Account </left></h1>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="column">
+                @Html.LabelFor(model => model.USER_FNAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.USER_FNAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.USER_FNAME, "", new { @class = "text-danger" })
+                </div>
+
+                @Html.LabelFor(model => model.USER_LNAME, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.USER_LNAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.USER_LNAME, "", new { @class = "text-danger" })
+                </div>
+
+
+
+
+                Email
+                @Html.LabelFor(model => model.USER_EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.USER_EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.USER_EMAIL, "", new { @class = "text-danger" })
+                </div>
+                <br>
+                <br>
+
+                Password
+                @Html.LabelFor(model => model.USER_PASSWORD, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.USER_PASSWORD, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.USER_PASSWORD, "", new { @class = "text-danger" })
+                </div>
+                <br>
+                <br>
+            </div>
+            
+            </div>
+            <div class="row">
+                <div class="column">
+                    <form action="/action_page.php">
+                        Add Payment Method
+                        <br>
+                        Card Number
+                        <input type="number" name="card">
+                        <br>
+                        CVC
+                        <input type="number" name="cvc">
+                        Exp. Date
+                        <input type="number" name="date">
+                        <br>
+                        <br>
+                        <input type="submit" value="Update">
+                    </form>
+                </div>
+            </div>
+            }
+
+            <div class="footer">
+                <h2>&#169 ticketswap.com</h2>
+            </div>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>USER</h4>
         <hr />

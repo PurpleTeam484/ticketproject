@@ -14,6 +14,10 @@ namespace ticketswap.Controllers
         // GET: User
         public ActionResult Index()
         {
+            if (Session["USER_ID"] == null)
+            {
+                return RedirectToAction("Login", "USER");
+            }
             int USER_ID;
             USER_ID = Convert.ToInt32(Session["USER_ID"]);
             var user = new USER(USER_ID);
@@ -78,6 +82,10 @@ namespace ticketswap.Controllers
                             if (password_sql == Convert.ToString(Request.Form["USER_PASSWORD"]))
                             {
                                 Session["USER_ID"] = Convert.ToInt32(user_id_sql);
+                                if (Session["ORDER_ID"] != null)
+                                {
+                                    return RedirectToAction("Index", "ORDER");
+                                }
                                 return RedirectToAction("Index", "USER");
                             }
                             else

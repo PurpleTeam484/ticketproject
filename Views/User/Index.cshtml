@@ -1,32 +1,162 @@
 ﻿@model ticketswap.Models.USER
+
 @{
     ViewBag.Title = "User Information: ";
 }
 @*
     All the comments!!
 *@
-@if (!Model.Logged_in)
-{
-    <h1>You should log in...</h1>
-}
-else
-{
-<h2>User Information: </h2>
-<h4>First Name:</h4>
-<h4>@Model.USER_FNAME</h4>
-<h4>Last Name:</h4>
-<h4>@Model.USER_LNAME</h4>
-<h4>Email: </h4>
-<h4>@Model.USER_EMAIL</h4>
-<h4>Change password button</h4>
-<h4>Can I sell?</h4>
-if(Model.USER_CAN_SELL=="YES"){
-    <h4>Yes</h4>
-}
-else
-{
-    <h4>No</h4>
-}
-<p class="btn btn-default">@Html.ActionLink("Edit Information", "Edit", "USER") &raquo;</p>
-<p class="btn btn-default">@Html.ActionLink("Events", "Index", "Home") &raquo;</p>
-}
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            body {
+                font-family: Arial;
+                font-size: 17px;
+                padding: 8px;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            .row {
+                display: -ms-flexbox; /* IE10 */
+                display: flex;
+                -ms-flex-wrap: wrap; /* IE10 */
+                flex-wrap: wrap;
+                margin: 0 -16px;
+            }
+
+            .col-25 {
+                -ms-flex: 25%; /* IE10 */
+                flex: 25%;
+            }
+
+            .col-50 {
+                -ms-flex: 50%; /* IE10 */
+                flex: 50%;
+            }
+
+            .col-75 {
+                -ms-flex: 75%; /* IE10 */
+                flex: 75%;
+            }
+
+            .col-25,
+            .col-50,
+            .col-75 {
+                padding: 0 16px;
+            }
+
+            .container {
+                background-color: #f2f2f2;
+                padding: 5px 20px 15px 20px;
+                border: 1px solid lightgrey;
+                border-radius: 3px;
+            }
+
+            input[type=text] {
+                width: 100%;
+                margin-bottom: 20px;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+            }
+
+            label {
+                margin-bottom: 10px;
+                display: block;
+            }
+
+            .icon-container {
+                margin-bottom: 20px;
+                padding: 7px 0;
+                font-size: 24px;
+            }
+
+            .btn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 12px;
+                margin: 10px 0;
+                border: none;
+                width: 100%;
+                border-radius: 3px;
+                cursor: pointer;
+                font-size: 17px;
+            }
+
+                .btn:hover {
+                    background-color: #45a049;
+                }
+
+            a {
+                color: #2196F3;
+            }
+
+            hr {
+                border: 1px solid lightgrey;
+            }
+
+            span.price {
+                float: right;
+                color: grey;
+            }
+        </style>
+
+    <div class="row">
+        <div class="col-25">
+            <div class="container">
+                <h2>My Info: </h2>
+                @Html.DisplayFor(model => model.USER_FNAME)
+                @Html.DisplayFor(model => model.USER_LNAME)
+                <hr />
+                <br />
+                @Html.DisplayFor(model => model.USER_EMAIL)
+                <hr>
+                <br />
+                Can I Sell Tickets?
+                @Html.DisplayFor(model => model.USER_CAN_SELL)
+                <hr>
+                @using (Html.BeginForm("Edit", "USER", FormMethod.Get))
+                {
+                    <input type="submit" value="Edit Information" class="btn">
+                }
+            </div>
+        </div>
+        <div class="col-25">
+            <div class="container">
+                @using (Html.BeginForm("Create", "Event", FormMethod.Get))
+                {
+                    <input type="submit" value="Create Event" class="btn">
+                }
+                <!--
+                <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>1</b></span></h4>
+                <p><a href="#">//Html.DisplayFor(model => model.EVENT_NAME)</a> <span class="price">$//Html.DisplayFor(model => model.TICKET_PRICE)</span></p>
+                <hr>
+                //Html.DisplayFor(model => model.EVENT_DATE)
+                //Html.DisplayFor(model => model.EVENT_TIME)
+                <hr />
+                <br />
+                //Html.DisplayFor(model => model.EVENT_ADDRESS)
+                //Html.DisplayFor(model => model.EVENT_CITY)
+                //Html.DisplayFor(model => model.EVENT_STATE)
+                <hr>
+                <br />
+                Ticket Type:
+                //Html.DisplayFor(model => model.CATEGORY_NAME)
+                <hr />
+                Seller Name:
+                //Html.DisplayFor(model => model.USER_FNAME)
+                <hr>
+                <p>Total <span class="price" style="color:black"><b>$69</b></span></p>
+            </div>
+        </div>
+    </div>
+
+            -->
+
+            </div>
+        
+

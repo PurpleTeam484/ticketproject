@@ -10,78 +10,78 @@
 
 
         <div class="column">
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("Create", "EVENT", FormMethod.Post))
             {
                 <p>Name</p>
-                <input type="text" name="event">
-                
+                <input type="text" name="EVENT_NAME">
+
                 <p>Date</p>
                 @Html.EditorFor(model => model.EVENT_DATE, new
                 {
                     htmlAttributes = new { @class = "form-control" }
                 })
                 @Html.ValidationMessageFor(model => model.EVENT_DATE, "", new { @class = "text-danger" })
-              
+
                 <p>Time</p>
                 @Html.EditorFor(model => model.EVENT_TIME, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.EVENT_TIME, "", new { @class = "text-danger" })
-                
-                <p>Category </p >
 
-                <select name = "categories">
-                <option value = "1" > Concert </option>
+                <p>Category </p>
 
-                 <option value = "2" > Movies </option>
+                <select name="categories">
+                    <option value="1"> Concert </option>
 
-                  <option value = "3" > Marathon </option >
+                    <option value="2"> Movies </option>
 
-                   <option value = "4" > Sports </option >
+                    <option value="3"> Marathon </option>
+
+                    <option value="4"> Sports </option>
 
                 </select>
 
                 <h3>Description</h3>
                 <br>
                 <!--
-        Html.EditorFor(model => model.EVENT_DESCRIPTION, new { htmlAttributes = new { class = "form-control" }
-})
-    Html.ValidationMessageFor(model => model.EVENT_DESCRIPTION, "", new { class = "text-danger" })
-    -->
-        <textarea name="message" rows="10" cols="30">
+                Html.EditorFor(model => model.EVENT_DESCRIPTION, new { htmlAttributes = new { class = "form-control" }
+        })
+            Html.ValidationMessageFor(model => model.EVENT_DESCRIPTION, "", new { class = "text-danger" })
+            -->
+                <textarea name="message" rows="10" cols="30">
     </textarea>
-        <br><br>
+                <br><br>
 
-        <div class="column">
-                Street
-                @Html.EditorFor(model => model.EVENT_ADDRESS, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EVENT_ADDRESS, "", new { @class = "text-danger" })
-                <br>
-                <br>
-                City
-                @Html.EditorFor(model => model.EVENT_CITY, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EVENT_CITY, "", new { @class = "text-danger" })
-                <br>
-                <br>
-                State
-                @Html.EditorFor(model => model.EVENT_STATE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EVENT_STATE, "", new { @class = "text-danger" })
-                Zip
-                @Html.EditorFor(model => model.EVENT_ZIP, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EVENT_ZIP, "", new { @class = "text-danger" })
-                <br>
-                <br>
-                Venue Info
-                @Html.EditorFor(model => model.EVENT_VENUE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EVENT_VENUE, "", new { @class = "text-danger" })
-        
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-        }
+                <div class="column">
+                    Street
+                    @Html.EditorFor(model => model.EVENT_ADDRESS, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EVENT_ADDRESS, "", new { @class = "text-danger" })
+                    <br>
+                    <br>
+                    City
+                    @Html.EditorFor(model => model.EVENT_CITY, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EVENT_CITY, "", new { @class = "text-danger" })
+                    <br>
+                    <br>
+                    State
+                    @Html.EditorFor(model => model.EVENT_STATE, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EVENT_STATE, "", new { @class = "text-danger" })
+                    Zip
+                    @Html.EditorFor(model => model.EVENT_ZIP, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EVENT_ZIP, "", new { @class = "text-danger" })
+                    <br>
+                    <br>
+                    Venue Info
+                    @Html.EditorFor(model => model.EVENT_VENUE, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EVENT_VENUE, "", new { @class = "text-danger" })
 
-    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            }
+
+        </div>
 
     <div class="footer">
         <h2>&#169 ticketswap.com</h2>

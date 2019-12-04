@@ -6,6 +6,7 @@ namespace ticketswap.Models
     using System.Linq;
     using System.Data.SqlClient;
     using System.Text;
+ 
 
     public static class Model1
     {
@@ -67,13 +68,11 @@ namespace ticketswap.Models
             using (SqlCommand command = new SqlCommand(sql, myConnection))
             {
                 command.ExecuteNonQuery();
+                myConnection.Close();
                 return true;
+
             }
         }
-
-
-
-
 
     }
 }

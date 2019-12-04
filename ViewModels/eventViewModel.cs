@@ -9,6 +9,8 @@ namespace ticketswap.ViewModels
     {
         public int EVENT_ID { get; set; }
 
+        public string EVENT_NAME { get; set; }
+
         public string EVENT_DATE { get; set; }
 
         public string EVENT_TIME { get; set; }

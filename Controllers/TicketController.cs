@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ticketswap.Models;
 
 namespace ticketswap.Controllers
 {
@@ -22,7 +23,7 @@ namespace ticketswap.Controllers
 
         // GET: Ticket/Create
         public ActionResult Create()
-        {
+        { 
             return View();
         }
 
@@ -30,11 +31,17 @@ namespace ticketswap.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            if (Session["USER_ID"] == null)
+            {
+                return RedirectToAction("Login", "USER");
+            }
             try
             {
                 // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
+                Model1.Update("INSERT INTO [TICKET] (EVENT_ID, TICKET_DATE, SELLER_ID, TICKET_FILE_LOCATION, TICKET_PRICE, TICKET_SOLD, TICKET_ACTIVE) VALUES ('" +
+                            Session["EVENT_ID"].ToString() + "', 'empty', '" + Session["USER_ID"].ToString() + "', 'empty', '" + collection["TICKET_PRICE"] + "', 'NO', 'YES')");
+                return RedirectToAction("Index","USER");
             }
             catch
             {

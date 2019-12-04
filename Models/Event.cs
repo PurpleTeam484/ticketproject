@@ -46,6 +46,7 @@ namespace ticketswap.Models
                         while (reader.Read())
                         {
                             this.EVENT_ID = EVENT_ID;
+                            this.EVENT_NAME = reader["EVENT_NAME"].ToString();
                             this.EVENT_DATE = reader["EVENT_DATE"].ToString();
                             this.EVENT_TIME = reader["EVENT_TIME"].ToString();
                             this.EVENT_VENUE = reader["EVENT_VENUE"].ToString();
@@ -87,6 +88,8 @@ namespace ticketswap.Models
                 return false;
             }
         }
+
+        public string EVENT_NAME { get; set; }
 
         [StringLength(50)]
         public string EVENT_TIME { get; set; }

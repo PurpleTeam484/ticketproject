@@ -23,14 +23,14 @@ namespace ticketswap.ViewModels
         {
             this.ORDER_ID = 0;
             this.EVENT_NAME = "Maverick Hockey Game";
-            this.TICKET_PRICE = "69";
+            this.TICKET_PRICE = "$69.00";
             this.EVENT_DATE = "12/18/2019";
             this.EVENT_TIME = "3:19 AM";
             this.EVENT_VENUE = "Verizon Center";
             this.EVENT_ADDRESS = "131 Main ST.";
             this.EVENT_CITY = "Mankato";
             this.EVENT_STATE = "MN";
-            this.EVENT_DESCRIPTION = "A hockey game between MSU and UMD";
+            this.EVENT_DESCRIPTION = "A hockey game";
             this.USER_LNAME = "John";
             this.USER_FNAME = "Smith";
             this.CATEGORY_NAME = "Sporting Event";
@@ -60,7 +60,7 @@ namespace ticketswap.ViewModels
                     }
                     // Fetch the user info by their id
                     StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT T.TICKET_PRICE, E.EVENT_DATE, E.EVENT_TIME, E.EVENT_VENUE, E.EVENT_ADDRESS,E.EVENT_CITY,E.EVENT_STATE,E.EVENT_DESCRIPTION,E.CATEGORY_ID,U.USER_LNAME,U.USER_FNAME,C.CATEGORY_NAME FROM [TICKET] T JOIN [USER] U ON T.SELLER_ID=U.USER_ID JOIN [EVENT] E ON E.EVENT_ID=T.EVENT_ID JOIN [CATEGORY] C ON C.CATEGORY_ID=E.CATEGORY_ID WHERE TICKET_ID=" + ORDER_ID.ToString());
+                    sb.Append("SELECT T.TICKET_PRICE, E.EVENT_NAME, E.EVENT_DATE, E.EVENT_TIME, E.EVENT_VENUE, E.EVENT_ADDRESS,E.EVENT_CITY,E.EVENT_STATE,E.EVENT_DESCRIPTION,E.CATEGORY_ID,U.USER_LNAME,U.USER_FNAME,C.CATEGORY_NAME FROM [TICKET] T JOIN [USER] U ON T.SELLER_ID=U.USER_ID JOIN [EVENT] E ON E.EVENT_ID=T.EVENT_ID JOIN [CATEGORY] C ON C.CATEGORY_ID=E.CATEGORY_ID WHERE E.EVENT_ID=" + ORDER_ID);
                     String sql = sb.ToString();
 
                     using (SqlCommand command = new SqlCommand(sql, myConnection))
@@ -70,7 +70,14 @@ namespace ticketswap.ViewModels
                             while (reader.Read())
                             {
                                 this.ORDER_ID = ORDER_ID;
+                            if (reader["EVENT_NAME"] != null)
+                            {
+                                this.EVENT_NAME = reader["EVENT_NAME"].ToString();
+                            }
+                            else
+                            {
                                 this.EVENT_NAME = "Maverick Hockey Game";
+                            }
                                 this.TICKET_PRICE = reader["TICKET_PRICE"].ToString();
                                 this.EVENT_DATE = reader["EVENT_DATE"].ToString();
                                 this.EVENT_TIME = reader["EVENT_TIME"].ToString();
@@ -86,8 +93,9 @@ namespace ticketswap.ViewModels
                         }
                     }
                 }
-                catch
+                catch (Exception e)
                 {
+                    System.Diagnostics.Debug.WriteLine("error: "+e.ToString());
                     this.ORDER_ID = 0;
                 }
             
@@ -111,10 +119,7 @@ namespace ticketswap.ViewModels
         public string USER_FNAME { get; set; }
         public string CATEGORY_NAME { get; set; }
 
-
-
-
-
+        public System.Data.Entity.DbSet<ticketswap.Models.ORDER> ORDERs { get; set; }
     }
 
     //public class MyEntity

@@ -11,16 +11,62 @@ namespace ticketswap.Controllers
         // GET: Order
         public ActionResult Index()
         {
-            ViewModels.orderViewModel model = new ViewModels.orderViewModel(); //Convert.ToInt32(Session["ORDER_ID"])
-            var details = new ViewModels.eventViewModel();
-            return View(model);
+            if (Session["USER_ID"] == null)
+            {
+                return RedirectToAction("Login", "USER");
+            }
+            else
+            {
+                if (1==1)//Session["ORDER_ID"]==null)
+                {
+                    Session["ORDER_ID"] = 25;
+                    ViewModels.orderViewModel model = new ViewModels.orderViewModel(25);
+                    return View(model);
+                }
+                else
+                {
+                    ViewModels.orderViewModel model = new ViewModels.orderViewModel(Convert.ToInt32(Session["ORDER_ID"]));
+                    var details = new ViewModels.eventViewModel();
+                    return View(model);
+                }
+            }
         }
 
         // GET: Order/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            if (Session["USER_ID"] == null)
+            {
+                return RedirectToAction("Login", "USER");
+            }
+            else
+            {
+                ViewModels.orderViewModel model = new ViewModels.orderViewModel(id);
+                return View(model);
+            }
         }
+        public ActionResult Confirmation()
+        {
+            ViewModels.orderViewModel model = new ViewModels.orderViewModel();
+            var details = new ViewModels.eventViewModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Confirmation(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
 
         // GET: Order/Create
         public ActionResult Create()

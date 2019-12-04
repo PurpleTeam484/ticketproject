@@ -1,63 +1,48 @@
 ﻿@model ticketswap.Models.TICKET
-
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "add";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>TICKET INFO:</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+             <!--Html.LabelFor(model => model.TICKET_FILE_LOCATION, htmlAttributes: new { class = "control-label col-md-2" }) -->
+            <div class="col-md-10">
+                <h3>Ticket Code: </h3>
+                @Html.EditorFor(model => model.TICKET_FILE_LOCATION, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TICKET_FILE_LOCATION, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <h4>Ticket Price: $</h4>
+                @Html.EditorFor(model => model.TICKET_PRICE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TICKET_PRICE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn" />
+            </div>
+        </div>
+    </div>
 }
 
 
-    <h1><center>Add Ticket </center></h1>
 
 
-    <div class="row">
-        <div class="column">
-            <form action="/action_page.php">
-                <input type="text" name="event" placeholder="Event location">
-                <p>   </p>
-                <input type="Date" name="event
-  date" placeholder="Date">
-                <p>   </p>
-                <input type="text" name="category" placeholder="category">
-
-                <input type="text" name="event name" placeholder="Event Name">
-                <br>
-                <br>
-                <input type="submit" value="search">
-                <br>
-                <br>
-                <p> Event not found?</p>
-                <input type="submit" value="create New Event">
-            </form>
-        </div>
-
-        <div class="column">
-            <form action="/action_page.php">
-                Price
-                <input type="text" name="Price" value="">
-                <br><br>
-                Type
-                <input type="text" name="Type" value="">
-                <br><br>
-                Category
-                <select name="categories">
-                    <option value="concert"> Concert</option>
-                    <option value="#">Movies </option>
-                    <option value="#">Marathon</option>
-                    <option value="#">Sports</option>
-                </select>
-                <br><br>
-
-                <h2>Description</h2>
-                <textarea name="message" rows="10" cols="30">
-</textarea>
-                <br><br>
-                <input type="submit" value="Create">
-                <input type="submit" value="Upload Ticket">
-            </form>
-        </div>
-    </div>
-    <div class="footer">
-        <h2>&#169 ticketswap.com</h2>
-    </div>
+<div class="footer">
+    <h2>&#169 ticketswap.com</h2>
+</div>
 </body>
 </html>
 

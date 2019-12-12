@@ -41,11 +41,11 @@ namespace ticketswap.Controllers
 
                 Model1.Update("INSERT INTO [TICKET] (EVENT_ID, TICKET_DATE, SELLER_ID, TICKET_FILE_LOCATION, TICKET_PRICE, TICKET_SOLD, TICKET_ACTIVE) VALUES ('" +
                             Session["EVENT_ID"].ToString() + "', 'empty', '" + Session["USER_ID"].ToString() + "', 'empty', '" + collection["TICKET_PRICE"] + "', 'NO', 'YES')");
-                return RedirectToAction("Index","USER");
+                return RedirectToAction("View", "EVENT", new { id = Convert.ToInt32(Session["EVENT_ID"]) });
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index", "USER");
             }
         }
 

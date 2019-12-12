@@ -7,7 +7,9 @@ using ticketswap.Models;
 using System.Data.Entity.Spatial;
 using System.Data.SqlClient;
 using System.Text;
+using ticketswap.ViewModels;
 namespace ticketswap.Controllers
+
 {
     public class UserController : Controller
     {
@@ -18,9 +20,10 @@ namespace ticketswap.Controllers
             {
                 return RedirectToAction("Login", "USER");
             }
+            System.Diagnostics.Debug.WriteLine("testing12221: " + Session["ORDER_ID"]);
             int USER_ID;
             USER_ID = Convert.ToInt32(Session["USER_ID"]);
-            var user = new USER(USER_ID);
+            var user = new userViewModel(USER_ID, Convert.ToInt32(Session["ORDER_ID"]));
 
             ViewBag.User = user;
 

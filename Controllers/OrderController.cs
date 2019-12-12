@@ -17,7 +17,7 @@ namespace ticketswap.Controllers
             }
             else
             {
-                if (1==1)//Session["ORDER_ID"]==null)
+                if (Session["ORDER_ID"]==null)
                 {
                     Session["ORDER_ID"] = 25;
                     ViewModels.orderViewModel model = new ViewModels.orderViewModel(25);

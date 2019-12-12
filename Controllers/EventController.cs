@@ -20,6 +20,7 @@ namespace ticketswap.Controllers
         // GET: Event/Details/5
         public ActionResult View(int id)
         {
+            Session["EVENT_ID"] = id;
             try
             {
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -148,7 +149,7 @@ namespace ticketswap.Controllers
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "HOME");
             }
             catch
             {

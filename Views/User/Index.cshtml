@@ -1,4 +1,4 @@
-﻿@model ticketswap.Models.USER
+﻿@model ticketswap.ViewModels.userViewModel
 
 @{
     ViewBag.Title = "User Information: ";
@@ -131,7 +131,39 @@
                 {
                     <input type="submit" value="Create Event" class="btn">
                 }
-                <!--
+            </div>
+            @if (Model.ORDER_ID != 0)
+            {
+        <div class="container">
+            <p><a href="#">@Html.DisplayFor(model => model.EVENT_NAME)</a></p>
+            <hr>
+            @Html.DisplayFor(model => model.ORDER_ID)
+            @Html.DisplayFor(model => model.EVENT_DATE)
+            @Html.DisplayFor(model => model.EVENT_TIME)
+            <hr />
+            <br />
+            @Html.DisplayFor(model => model.EVENT_ADDRESS)
+            @Html.DisplayFor(model => model.EVENT_CITY)
+            @Html.DisplayFor(model => model.EVENT_STATE)
+            <hr>
+            <br />
+            Ticket Type:
+            @Html.DisplayFor(model => model.CATEGORY_NAME)
+            <hr />
+            Seller Name:
+            @Html.DisplayFor(model => model.USER_FNAME)
+            <hr>
+            @using (Html.BeginForm("Index", "USER", FormMethod.Get))
+            {
+                <input type="submit" value="View Ticket Code" class="btn">
+            }
+        </div>
+            }
+
+
+
+
+            <!--
                 <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>1</b></span></h4>
                 <p><a href="#">//Html.DisplayFor(model => model.EVENT_NAME)</a> <span class="price">$//Html.DisplayFor(model => model.TICKET_PRICE)</span></p>
                 <hr>
@@ -157,6 +189,6 @@
 
             -->
 
-            </div>
-        
+
+
 
